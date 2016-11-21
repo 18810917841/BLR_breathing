@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[left=1.5cm, right=1.5cm, top=3cm, bottom = 3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{latexsym}
+\usepackage{hyperref}
+\usepackage{feynmf}
+\usepackage{exscale}
+\usepackage{relsize}
+\usepackage{bm}%bold math, for vector
+\linespread{1.1}
+
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor={Yuyang Songsheng},
+  pdftitle={BLR breathing caused by varying radiation pressure},
+  pdfsubject={BLR breathing caused by varying radiation pressure},
+  urlcolor=blue,
+}
+\author{Yuyang Songsheng}
+\title{BLR breathing caused by varying radiation pressure}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+Over the past four decades, a large number of AGNs have been monitored through reverberation mapping. Time lags between the light curve of continuums and emission lines are good estimates of the average distance from central black holes to broad line regions of AGN. Furthermore, some observations show that time lags we measured for one specific AGN object may not be a constant. Instead, it can change with time. For instance, during the 13 years monitoring campaign of NGC 5548, Peterson et al.(2002; see also Peterson et al. 1999) found that the lag of $\mathrm{H}_{\beta}$ emission-line varies with the mean continuum luminosity. This phenomenon is called "BLR breathing". 
+
+(some existing explanations of BLR breathing $\cdots$)
+
+A recent work by Lu et al.(2016)  compared the measurements of $\mathrm{H}_{\beta}$ time lags and the associated mean $5100 \\A$ luminosities between 1989 and 2015 and found that the $\mathrm{H}_{\beta}$ BLR size varies with the mean optical luminosity with a possible delay of $2.35^{+3.47}_{-1.25}$ years. This delay is close to the typical BLR dynamical timescale of NGC 5548, suggesting a dynamical origin of BLR breathing. And one possible explanation is the impact of varying radiation pressure on the motion of clouds in BLR. 
+
+This article aims to build a dynamical model including varying radiation pressure for BLR and see whether it is possible for BLR size varying with the mean optical luminosity with a possible delay in the simulation.
+
+\section{Dynamical model}
+\subsection{Equation of motion}
+In this model we suppose that the BLR is composed of pressure-confined spherical clouds with constant mass and static intercloud gas. (Netzer 1990, Shadmehri 2015). Forces exerted on clouds includs gravitation of the black hole, the pressure of radiation comming from center and the drag force caused by background gas. We also assume the volume-filling factor of the BLR cloud is low(Rees,Netzer $\&$ Ferland 1989), and neglect shadowing effect. We can also neglect forces between any two clouds for the same reason. 
+
+Suoppose that the mass of black hole is $M$ and the mass of the cloud $m$, the gravitation force on this cloud is
+\[\mathbf{F}_{g} = -\frac{GMm}{r^2}\mathbf{e}_r \]
+As for radiation pressure, we neglect the isotropy of radiation field for simplicity (Netzer 2010). We also assume that the cloud is optically thick for the whole wavelength where most of the energy is radiated(Plewa et.al 2013). Suppose the luminosity is $L$ and the radius of the cloud is $R$, the force of radiation pressure can be written as
+\[\mathbf{F}_{r} = \frac{L(t)}{4\pi r^2 c} \pi R^2 \mathbf{e}_r\]
+Define the Eddition ratio $l$ as $\frac{L}{L_{edd}}$, where $L_{edd} \equiv \frac{4\pi GMm_pc}{\sigma_T}$. The column density of the cloud is $N_{cl} = 2nR$, where $n$ is the number density of the gas molecule in the cloud. So, the force can be rewritten as
+\[\mathbf{F}_{r} = \frac{GMm}{r^2} \frac{3l(t)}{2\mu_{m}N_{cl}\sigma_T} \mathbf{e}_r\]
+Assume the gas density in individual clouds are proportional to the radial coordinate, $n \propto r^{-s}$(Netzer 2010). It is easy to derive that
+$$ R = R_0 \left( \frac{r}{r_0}\right)^{s/3} \quad N_{cl} = N_0 \left( \frac{r}{r_0}\right)^{-2s/3} $$
+where $R_0$ and $N_0$ is the radius and column density of the cloud at distance $r_0$. So the force of radiation pressure can be further simplified as
+$$\mathbf{F}_{r} = \frac{GMm}{r_0^2} \cdot \alpha l(t)  \left( \frac{r}{r_0}\right)^{-2+2s/3} \mathbf{e}_r,$$
+where $\alpha \equiv \frac{3}{2\mu_{m}N_0\sigma_T}$.
+
+Now we can consider the drag force exerted by intercloud gas. For a quite large range of parameters on BLR's physical properties, the non-dimension Reynoids number of gas flow is smaller that $1$ and so the flow tends to be laminar.(Shadmehri 2015). Then the frictional force on the spherical cloud takes the form as Stoke's drag,
+\[\mathbf{F}_d = -6\pi \mu R \mathbf{v},\]
+where $\mu$ is the viscosity of the intercloud. We suppose that the viscosity coefficient of the gaseous intercloud medium also varies as a power law function of the radial distance
+\[\mu = \mu_0 \left( \frac{r}{r_0}\right)^{\nu}\]
+where $\mu_0$ is the viscosity of the intercloud at distance $r_0$. 
+Because the gravitation force and force of radiation is central, and the torque of the drag force is parallel with the angular momentum, the direction of the angular momentum will not change. As a result, the motion of the cloud will be confined in a plane. Now we can use the polar coordinate to derive the equation of motion. It is also convenient to transform the equation of motion into non-dimensional form. We use the reference radial distance $r_0$ as the unit of length, the Keplerian velocity at this radial distance $v_K(r_0) = \sqrt{GM/r_0}$ as the unit of velocity, and $t_0 = r_0/v_K(r_0)$ as  time unit. The final form of our equation of motion is
+\begin{eqnarray}
+\ddot{r} - r \dot{\theta}^2 &=& \frac{\alpha l(t)}{r^{2-\frac{2}{3}s}}  -\frac{1}{r^2} - \beta r^{\nu + s/3}\dot{r} \nonumber \\
+r\ddot{\theta} + 2\dot{r}\dot{\theta} &=& -\beta r^{\nu + s/3 +1} \dot{\theta} \nonumber
+\end{eqnarray}
+where $\beta = \frac{6\pi\mu_0R_0r_0}{mv_0}$. The numerical value of $\beta$ can be estimated as $\beta \approx \frac{\Lambda}{\mathrm{Re}}$. Here $\mathrm{Re}$ is the Reynoid number and the non-dimension parameter $\Lambda$ is
+\[\Lambda = \frac{9}{2} \left( \frac{r_0}{R_0}\right) \left( \frac{\rho_{0}}{\rho_{\mathrm{cl}0}}\right) \left( \frac{u_0}{v_K(r_0)} \right)\]
+where $u_0$ is the typical velocity of the cloud and $\rho_{\mathrm{cl}0}$ is the density of the cloud at $r_0$. The density of inter-cloud gas at $r_0$ is $\rho_0$(Shadmehri 2015). 
+
+\subsection{Variability of continuum light curve}
+The variability of optical continuum light curve can be modelled as a Gaussian process with the covariant matrix
+\[S(t_1,t_2) = \sigma^2 \exp(\frac{|t_1-t_2|}{\tau_0})\]
+Here, $\tau_0$ is the typical timescale of variation, $\sigma_d$ is the standard deviation of variation on long-timescale, and $\alpha$ is a smoothness parameter(Kelly et al 2009). Generally, $\alpha =1$ is sufficient for most modelling (MacLeod et al. 2010; Zu et al. 2013, Li et al. 2013). 
+
+In the simulation, we will divide the time from $t_0$ to $t_n$ into $n$ potions. The length of each portion is just the length of time-step we adopt when solving the differential equation of motion numerically. Then we can generate a sequence of independently Gaussian-distributed random numbers $\{n_j\}$. Next, using $LU$ method to decompose the covariant matrix $S_{ij} \equiv S(t_i,t_j)$ into $P^TP$. The simulated light curve of continuum can be written as
+\[l(t_i) = u + P_{ij}n_j\]
+where, $u$ is the mean value of the continuum light curve in unit of Eddington luminosity. 
+
+\subsection{Estimating time lag}
+In our simulation, the motion of each cloud is described by the function $r(t)$ and $\theta(t)$ completely. But if we want to map the average scale of BLR into the time lag we measured by reverberation mapping, we need to build a three dimensional geometrical model for AGN(Pancoast 2011, Li et al. 2013). It can be represented by the following diagram.
+
+(There should be a diagram $\cdots$)
+
+The BLR clouds subtend a solid angle $\theta_{\mathrm{opn}}$, which is defined so that $\theta_{\mathrm{opn}} \to 0$ corresponds to thin disks or rings while $\theta_{\mathrm{opn}} \to \frac{\pi}{2}$ creates spheres or shells. Within the opening angle, we assume that the clouds are uniformly distributed over the polar and azimuthal
+directions. This operation can be done by assigning a random direction for the orbit plane of the cloud and converting the $\theta$, $r$ to three dimensional coordinates. Lastly, the BLR is viewed at an inclination angle $\theta_{\mathrm{inc}}$ to the distant observer, which is defined so that an inclination of zero corresponds to face-on, and an inclination of $\frac{\pi}{2}$ corresponds to edge-on. And we will rotate the entire configuration of the system to make the line of sight be the $z$ direction. 
+So, for an individual cloud in $(x,y,z)$, the corresponding time lag between emission lines radiation of the cloud and continuum radiation from center region can be written as
+\[\tau = \frac{r - z}{c} \quad r = \sqrt{x^2+y^2+z^2}\]
+Also, we assume the luminosity of emission lines from one cloud is simply proportional to the flux of continuum at that position and the cross section of the cloud, i.e. 
+\[L_{e} \propto r^{-2+\frac{2}{3}s}\]
+So, the time lag we measured can be estimated as
+\[\bar{\tau} \approx \frac{\sum_i \tau_i r_i^{-2+\frac{2}{3}s}}{\sum_i r_i^{-2+\frac{2}{3}s}} \]
+
+\subsection{Initial conditions}
+The initial conditions of the clouds can not be given a priori. So we assign the initial position and velocity for each cloud based on most simple reasoning. Radius coordinates of clouds are a Gaussian distribution with mean value $r_0$ while angular coordinates a  uniformly distribution within $[0,2\pi)$. The velocities along angular direction are a Gaussian distribution with mean value $v_K(r_0)$ while velocities along radial direction a Gaussian distribution with mean value $0$. And we expect the motion of clouds after some time would be quiet disordered and the initial degeneration of the coordinates and velocities would be broken.  
+
+\section{Simulation results}
+In our simulation, we assume
+\[M = 1.0 \times 10^8 M_{\odot} \quad r_0 = 20 \mbox{ Light Day}\]
+Consequently, the units of velocity and time are
+\[v_K(r_0) = 5061.53 \mbox{ km/s} \quad t_0 = 3.2433 \mbox{ years}\]
+Because $\sigma_T =6.65 \times 10^{-25} \mathrm{cm}^{2}$, and for a typical AGN, $N_0 \approx 10^{22} \sim 10^{24} \mathrm{cm}^{-2}$, we can simply assign the value of $\alpha$ as $1$.  
+\end{document}

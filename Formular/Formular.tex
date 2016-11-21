@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[left=1.5cm, right=1.5cm, top=3cm, bottom = 3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{latexsym}
+\usepackage{hyperref}
+\usepackage{feynmf}
+\usepackage{exscale}
+\usepackage{relsize}
+\usepackage{bm}%bold math, for vector
+\linespread{1.1}
+
+
+\author{Yuyang Songsheng}
+\title{The Variation of Radiation Pressure and Breathing of BLR}
+
+\begin{document}
+\maketitle
+\section{Equation of motion}
+Gravitation:
+\begin{equation}
+F_{grav} = -\frac{GMm}{r^2}
+\end{equation}
+Radiation pressure:
+\begin{equation}
+F_{rad} = \frac{GMm}{r^2} \cdot \frac{3l}{2\sigma_T N_{cl}}
+\end{equation}
+Here, $l$ is the ratio between actual luminosity $L$ and Eddington luminosity $L=\frac{4\pi GMm_pc}{\sigma_T}$.\\
+If we suppose that the density of the gas in clouds varies with radius as
+\begin{equation}
+\rho_{cl} = \rho_{cl0} (\frac{r}{r_0})^{-s}
+\end{equation}
+then we know the column density varies as
+\begin{equation}
+N_{cl} = N_{cl0} (r/r_0)^{-\frac{2}{3}s}
+\end{equation}
+Drag force:
+\begin{equation}
+F_{drag} = -6\pi \mu R_{cl} v
+\end{equation}
+We suppose the viscosity $\mu$ varies as
+\begin{equation}
+\mu = \mu_0 (\frac{r}{r_0})^{\nu}
+\end{equation}
+The radius of clouds varies as 
+\begin{equation}
+R_{cl} = R_{cl0} (\frac{r}{r_0})^{\frac{s}{3}}
+\end{equation}
+To simplify our calculation, we must redefine our scales. we use the typical size of BLR $r_0$ as the scale of length and Kepler velocity $v_{0} = \sqrt{\frac{GM}{r_0}}$ as the scale of velocity. Then the acceleration of the cloud can be written as
+\begin{equation}
+a_{grav} = - \frac{1}{r^2}
+\end{equation}
+\begin{equation}
+a_{rad} = \frac{\alpha f(t)}{r^{2-\frac{2}{3}s}}, \ \ \alpha = \frac{3l_0}{2\sigma_T N_{cl0}}
+\end{equation}
+(Here, the variation of light curve can be written as $l = l_0 *f(t)$)
+\begin{equation}
+a_{drag} = -\beta r^{\frac{s}{3}+\nu} v,\ \ \beta = \frac{6\pi \mu_0 R_{cl0} r_0}{m v_0}
+\end{equation}
+If we define the Reynolds number as
+\begin{equation}
+\mathrm{Re} = \frac{\rho u L}{\mu}
+\end{equation}
+Here, $u$ is the mean velocity of the cloud relative to the background gas and $L$ is a characteristic length, $\rho$ is the density of the background gas. After a few lines of algebra, we can get
+\begin{equation}
+\beta = \frac{\Lambda}{\mathrm{Re}_0},\ \ \Lambda = \frac{9}{2} \frac{r_0}{R_{cl0}} \frac{\rho_0}{\rho_{cl0}} \frac{u_0}{v_0} 
+\end{equation}
+As the drag force can not change the direction of angular momentum of the cloud, the motion of the cloud is constrained in a plane. We use polar coordinates to describe its motion.
+\begin{equation}
+\ddot{r} = \frac{L^2}{r^3} - \frac{1}{r^2} + \frac{\alpha f(t)}{r^{2-\frac{2}{3}s}} - \beta r^{\frac{s}{3}+\nu}\dot{r}
+\end{equation}
+\begin{equation}
+\dot{L} = - \beta r^{\frac{s}{3}+\nu}L
+\end{equation}
+
+
+
+\section{The perturbation theory}
+At first, we study the motion of clouds when the radiation pressure and drag force can be viewed as a perturbation,$i.e. \alpha \ll 1, \beta \ll 1$. The $0^{th}$ order approximation is just circular motion
+\begin{equation}
+r=1, \ \ L=1
+\end{equation}
+To the linear order,
+\begin{equation}
+\delta\ddot{r} = 
+\end{equation}
+\end{document}
